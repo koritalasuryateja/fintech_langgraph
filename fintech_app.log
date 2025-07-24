@@ -1,0 +1,109 @@
+2025-07-24 16:24:37,228 - __main__ - INFO - Loading environment variables...
+2025-07-24 16:24:37,229 - __main__ - INFO - Environment variables loaded
+2025-07-24 16:24:37,229 - __main__ - INFO - Initializing session states...
+2025-07-24 16:24:37,229 - __main__ - INFO - Initializing ChromaManager...
+2025-07-24 16:24:37,229 - fintech_langgraph.knowledge_base.chroma_manager - INFO - Initializing ChromaManager...
+2025-07-24 16:25:51,994 - __main__ - INFO - Loading environment variables...
+2025-07-24 16:25:51,996 - __main__ - INFO - Environment variables loaded
+2025-07-24 16:25:51,997 - __main__ - INFO - Initializing session states...
+2025-07-24 16:25:51,998 - __main__ - INFO - Initializing ChromaManager...
+2025-07-24 16:25:51,999 - fintech_langgraph.knowledge_base.chroma_manager - INFO - Initializing ChromaManager...
+2025-07-24 16:25:53,982 - chromadb.telemetry.product.posthog - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-24 16:25:54,156 - fintech_langgraph.knowledge_base.chroma_manager - INFO - ChromaManager initialized successfully
+2025-07-24 16:25:54,156 - __main__ - INFO - ChromaManager initialized
+2025-07-24 16:25:54,156 - __main__ - INFO - Setting up sidebar...
+2025-07-24 16:25:55,057 - __main__ - INFO - User type changed from None to User
+2025-07-24 16:25:55,057 - __main__ - INFO - Setting up main content area...
+2025-07-24 16:25:59,518 - __main__ - INFO - Loading environment variables...
+2025-07-24 16:25:59,524 - __main__ - INFO - Environment variables loaded
+2025-07-24 16:25:59,524 - __main__ - INFO - Initializing session states...
+2025-07-24 16:25:59,526 - __main__ - INFO - Setting up sidebar...
+2025-07-24 16:25:59,532 - __main__ - INFO - User type changed from User to Admin
+2025-07-24 16:25:59,540 - __main__ - INFO - Setting up main content area...
+2025-07-24 16:26:04,511 - __main__ - INFO - Loading environment variables...
+2025-07-24 16:26:04,511 - __main__ - INFO - Environment variables loaded
+2025-07-24 16:26:04,511 - __main__ - INFO - Initializing session states...
+2025-07-24 16:26:04,523 - __main__ - INFO - Setting up sidebar...
+2025-07-24 16:26:04,552 - __main__ - INFO - File selected for upload: healthcare_sector_knowledge.txt
+2025-07-24 16:26:04,612 - __main__ - INFO - Setting up main content area...
+2025-07-24 16:26:06,625 - __main__ - INFO - Loading environment variables...
+2025-07-24 16:26:06,625 - __main__ - INFO - Environment variables loaded
+2025-07-24 16:26:06,625 - __main__ - INFO - Initializing session states...
+2025-07-24 16:26:06,625 - __main__ - INFO - Setting up sidebar...
+2025-07-24 16:26:06,643 - __main__ - INFO - File selected for upload: healthcare_sector_knowledge.txt
+2025-07-24 16:26:06,649 - __main__ - INFO - Processing uploaded file...
+2025-07-24 16:26:06,650 - __main__ - INFO - Processing file upload: healthcare_sector_knowledge.txt
+2025-07-24 16:26:06,651 - __main__ - INFO - Reading file content...
+2025-07-24 16:26:06,651 - __main__ - INFO - Adding document to vector store...
+2025-07-24 16:26:06,663 - fintech_langgraph.knowledge_base.chroma_manager - INFO - Processing document: healthcare_sector_knowledge.txt
+2025-07-24 16:26:06,665 - fintech_langgraph.knowledge_base.chroma_manager - INFO - Splitting text into chunks...
+2025-07-24 16:26:06,669 - fintech_langgraph.knowledge_base.chroma_manager - INFO - Created 7 chunks
+2025-07-24 16:26:06,671 - fintech_langgraph.knowledge_base.chroma_manager - INFO - Creating document objects...
+2025-07-24 16:26:06,672 - fintech_langgraph.knowledge_base.chroma_manager - INFO - Adding documents to vector store...
+2025-07-24 16:26:08,021 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/embeddings "HTTP/1.1 401 Unauthorized"
+2025-07-24 16:26:08,038 - fintech_langgraph.knowledge_base.chroma_manager - ERROR - Error adding document: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+Traceback (most recent call last):
+  File "D:\projects\fintech_langgraph\fintech_langgraph\knowledge_base\chroma_manager.py", line 69, in add_document
+    self.vectorstore.add_documents(documents)
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\langchain_core\vectorstores\base.py", line 288, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\langchain_chroma\vectorstores.py", line 606, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\langchain_openai\embeddings\base.py", line 590, in embed_documents
+    return self._get_len_safe_embeddings(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\langchain_openai\embeddings\base.py", line 478, in _get_len_safe_embeddings
+    response = self.client.create(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\openai\resources\embeddings.py", line 132, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\openai\_base_client.py", line 1256, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\openai\_base_client.py", line 1044, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2025-07-24 16:26:08,051 - __main__ - ERROR - Error processing file: Error adding document: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+Traceback (most recent call last):
+  File "D:\projects\fintech_langgraph\fintech_langgraph\knowledge_base\chroma_manager.py", line 69, in add_document
+    self.vectorstore.add_documents(documents)
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\langchain_core\vectorstores\base.py", line 288, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\langchain_chroma\vectorstores.py", line 606, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\langchain_openai\embeddings\base.py", line 590, in embed_documents
+    return self._get_len_safe_embeddings(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\langchain_openai\embeddings\base.py", line 478, in _get_len_safe_embeddings
+    response = self.client.create(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\openai\resources\embeddings.py", line 132, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\openai\_base_client.py", line 1256, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\LENOVO\anaconda3\envs\myvenv\Lib\site-packages\openai\_base_client.py", line 1044, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\projects\fintech_langgraph\app.py", line 76, in upload_to_rag
+    result = st.session_state.chroma_manager.add_document(file.name, content)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\projects\fintech_langgraph\fintech_langgraph\knowledge_base\chroma_manager.py", line 77, in add_document
+    raise Exception(error_msg)
+Exception: Error adding document: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2025-07-24 16:26:08,097 - __main__ - INFO - File processing result: Error processing file: Error adding document: Error code: 401 - {'error': {'message': "You didn't provide an API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorization: Bearer YOUR_KEY), or as the password field (with blank username) if you're accessing the API from your browser and are prompted for a username and password. You can obtain an API key from https://platform.openai.com/account/api-keys.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+2025-07-24 16:26:08,105 - __main__ - INFO - Retrieving unique documents from knowledge base...
+2025-07-24 16:26:08,107 - fintech_langgraph.knowledge_base.chroma_manager - INFO - Retrieving unique documents...
+2025-07-24 16:26:08,146 - fintech_langgraph.knowledge_base.chroma_manager - INFO - Found 0 unique documents
+2025-07-24 16:26:08,147 - __main__ - INFO - Found 0 unique documents
+2025-07-24 16:26:08,147 - __main__ - INFO - Setting up main content area...
